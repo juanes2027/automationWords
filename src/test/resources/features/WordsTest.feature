@@ -6,7 +6,7 @@ Feature: As a Qa automator, I want to create a automation to test https://wordco
     Then It is validated that the values are correct
 
   Scenario: Test with words that have limit values, such as one letter and pronouns in English, special characters, numbers.Also test upper and lower case.
-   Given The information from the text file "Test2.txt" with limit values to be tested is collected and the internal count is done.
+    Given The information from the text file "Test2.txt" with limit values to be tested is collected and the internal count is done.
     When The web count the data sent "Test2.txt".
     Then It is validated that the values are correct
 
@@ -15,7 +15,10 @@ Feature: As a Qa automator, I want to create a automation to test https://wordco
     When The web count the data sent "Test3.txt".
     Then It is validated that the values are correct
 
-  Scenario: Test urls to see bad count in the global preloader.
-    Given The information from the text file "Test4.txt" with url to be tested is collected and the internal count is done.
-    When The web count the data sent "Test4.txt".
-    Then It is validated that the values are correct
+ Scenario: Test urls to see bad count in the global preloader.
+   Given The information from the text file "Test4.txt" with url to be tested is collected and the internal count is done.
+   When The web count the data sent "Test4.txt".
+   Then It is validated that the values are correct
+
+  Scenario: Test WORD FREQUENCY COUNTER
+    Given The information from the text file "Test1.txt".

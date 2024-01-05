@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CountPage extends BaseClass {
 
@@ -22,6 +26,8 @@ public class CountPage extends BaseClass {
     JavascriptExecutor js = (JavascriptExecutor) driver;
     private String readText;
     private static String dataCounted;
+    private static int totalWords;
+    private static int totalCharacters;
     private static String txt3;
     private static String txt1;
     private static String txt2;
@@ -69,4 +75,44 @@ public class CountPage extends BaseClass {
         System.out.println("Texto original:\n" + txt3);
         System.out.println("\nText for validation:\n" + txt3);
     }
-}
+
+    public void countWebData2(String Test1 ) throws InterruptedException, IOException {
+
+
+        // Obtain the txt to test
+        Path filePath = Paths.get(Test1);
+        readText = new String(Files.readAllBytes(filePath));
+        System.out.println("Original Text:\n" + readText);
+        // Convert to lowercase and delete spaces
+        readText = readText.toLowerCase().trim();
+        // Convert jumps in spaces
+        readText = readText.replaceAll("[\\n\\r]+", " ");
+
+        String[] words = countWords(readText);
+        // Found the most repeated word
+        Map<String, Integer> counterWords = new HashMap<>();
+        for (String word : words) {
+            counterWords.put(word, counterWords.getOrDefault(word, 0) + 1);
+        }
+        // Order the map for frequency of words
+        List<Map.Entry<String, Integer>> listOrderedWords = new ArrayList<>(counterWords.entrySet());
+        listOrderedWords.sort(Map.Entry.<String, Integer>comparingByValue().reversed());
+        // Show and save the three words more repeated
+        int counter = 0;
+        for (Map.Entry<String, Integer> entry : listOrderedWords) {
+                System.out.println("Word: " + entry.getKey() + ", Repeats: " + entry.getValue());
+                counter++;
+
+            }
+        totalWords = words.length;
+        totalCharacters = readText.length();
+        // show the results
+        System.out.println("Total words: " + totalWords);
+        System.out.println("Total characters: " + totalCharacters);
+        }
+
+        private static String[] countWords (String texto){
+            return texto.split("\\s+");
+        }
+    }
+

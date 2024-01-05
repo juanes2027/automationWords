@@ -87,4 +87,10 @@ public class WordsSteps {
         WordsPage word = new WordsPage(driver, wait);
         word.readTest(Arrays.asList(Test4));
     }
+
+    @Given("The information from the text file {string}.")
+    public void theInformationFromTheTextFile(String Test1) throws IOException, InterruptedException {
+        CountPage count = new CountPage(driver, wait);
+        count.countWebData2(Test1);
+    }
 }
