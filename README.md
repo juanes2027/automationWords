@@ -1,27 +1,28 @@
-Que se necesita para correr el proyecto?
+To run the project, you need the following:
 
-1. Java Development Kit (JDK)
-Descargar e instalar JDK y maven 
-Configurar las variables de entorno de Java y maven
+1)Java Development Kit (JDK):
+
+Download and install JDK and Maven.
+
+Configure Java and Maven environment variables.
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/{JDK_VERSION_FOLDER}/Contents/Home
 export PATH=$PATH:$JAVA_HOME/bin
+Do the same for Maven after extracting the downloaded file and adding the respective path to the PATH variable.
 
-Se hace lo mismo on amven despues de descomprimir el archivo descargado y poner la ruta respectiva en el path 
-Revisar la version del java y maven en terminal con el comando java -version , maver -version
+Check the Java and Maven versions in the terminal using the commands java -version and mvn -version.
 
-2. ChromeDriver
-Descargar el chromeDriver que se asocie con tu version del navegador , se valida la version en el setting de chrome
-Pegar el chromeDriver al proyecto 
-Download Maven as your build tools
+2)ChromeDriver:
 
-3. Intellij IDEA
-Descargar e instalar intellij 
-descargar y descomprimir el proyecto de git 
-Importar el proyecto usando maven 
-Descargar cucumber desde el ayudante de intellij 
+Download the ChromeDriver associated with your browser version. Check the version in the Chrome settings.
+Place the ChromeDriver in the project.
+3)IntelliJ IDEA:
 
-4. Correr las pruebas 
+Download and install IntelliJ IDEA.
+Download and unzip the project from Git.
+Import the project using Maven.
+Download Cucumber from IntelliJ's helper.
+4)Run the Tests:
 
-Dar click derecho en la clase TestRunner y luego dar click en Run 'TestRunner'
-Disfruta de las automatizaciones :D 
+Right-click on the TestRunner class and then click on Run 'TestRunner'.
+Enjoy the automations! 😄
